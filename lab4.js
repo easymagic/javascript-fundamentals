@@ -21,6 +21,23 @@ sandbox(function(){
 
     b.set(200);
 
+    var $counter = Observable.value(0);
+
+
+    $counter.listen(function(vl){
+
+         
+        document.getElementById('counter').value = vl;
+
+
+    });
+
+
+    setInterval(function(){
+       
+        $counter.set($counter.get() + 1);
+
+    },100);
 
 
 
