@@ -1,6 +1,28 @@
-var $name = document.querySelector('#name');
-$name.addEventListener('keyup',function(e){
+var credentials = {
+    email: Observable.value('username@domain.com'),
+    password: Observable.value('password')
+};
 
-     console.log('pressing keys',e);
 
-},false);
+function notifyResult(){
+    
+    document.querySelector('#result').innerHTML = `
+      Currently typing : <br />
+      Email : ${credentials.email.get()} <br />
+      Password: ${credentials.password.get()}
+    `;
+     
+}
+
+var $obEmail = Observable.bindInput('#email',credentials.email).listen(function(vl){
+
+    notifyResult();
+
+});
+
+var $obPassword = Observable.bindInput('#password',credentials.password).listen(function(vl) {
+    
+    notifyResult();
+
+});
+
