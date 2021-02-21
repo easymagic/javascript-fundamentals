@@ -1,5 +1,8 @@
 sandbox(function(){
  
+    // throw {
+    //     message:'New error!'
+    // };
      
     var a =  Observable.value(11);
     var b = Observable.value(23);
