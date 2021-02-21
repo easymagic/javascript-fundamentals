@@ -35,4 +35,28 @@ var Observable = {};
          
     };
 
+    obs.computed = function(cb,observables){
+
+        var $obs = Observable.value(0);
+
+
+        observables.forEach(function(item,key){
+            
+            item.listen(function(){
+
+                $obs.set(cb());
+
+
+            });
+
+        })
+
+
+        return $obs;
+
+    };
+
 })(Observable);
+
+
+
