@@ -111,6 +111,29 @@ $promise.then(response=>{
 
 });
 
+var $el = document.querySelector('#clk');
+
+var $promise2 = new Promise((resolve,reject)=>{
+
+     var i = 0;
+  
+      $el.addEventListener('click',(event)=>{
+        
+        i+=1; 
+        resolve(`clicked ${i} times. `);
+        return false;
+
+      },false);
+
+
+});
+
+
+$promise2.then(response=>{
+
+  logToConsole(response);
+
+});
 
 
 
